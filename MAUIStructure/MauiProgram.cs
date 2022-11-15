@@ -1,5 +1,8 @@
 ﻿using CommunityToolkit.Maui;
 using CommunityToolkit.Maui.Markup;
+using MAUIStructure.Pages;
+using MAUIStructure.ViewModels;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
 namespace MAUIStructure;
@@ -20,6 +23,12 @@ public static class MauiProgram
 			});
 
 		builder.Services.AddLocalization();
+
+		// view models
+		builder.Services.AddSingleton<MainViewModel>();
+
+		// pages
+		builder.Services.AddSingleton<MainPage>();
 
 #if DEBUG
 		builder.Logging.AddDebug();
