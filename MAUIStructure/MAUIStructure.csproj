@@ -58,6 +58,8 @@
 
 	<ItemGroup>
 	  <Folder Include="Resources\Strings\" />
+	  <Folder Include="Pages\" />
+	  <Folder Include="ViewModels\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <EmbeddedResource Update="Resources\Strings\LocalizationResources.resx">
