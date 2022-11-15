@@ -7,7 +7,9 @@
     xmlns:vm="clr-namespace:MAUIStructure.ViewModels"
     x:Class="MAUIStructure.Pages.MainPage"
     x:DataType="vm:MainViewModel"
-    Title="Home">
+    Title="Home"
+    StatusBarColor="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource Gray950}}"
+    StatusBarStyle="LightContent">
     <ScrollView>
         <VerticalStackLayout
             Spacing="25"
