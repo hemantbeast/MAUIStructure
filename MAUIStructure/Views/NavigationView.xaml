@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Grid
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="MAUIStructure.Views.NavigationView"
+    x:Name="navigationView"
+    ColumnSpacing="0"
+    RowSpacing="0"
+    ColumnDefinitions="10, 40, *, 40, 10"
+    BackgroundColor="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource Gray950}}">
+    <Grid
+        Grid.Column="1"
+        x:Name="btnLeftView">
+        <ImageButton
+            x:Name="btnLeft"
+            WidthRequest="24"
+            HeightRequest="24"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            Source="{Binding LeftImage, Source={x:Reference navigationView}}"
+            Command="{Binding LeftCommand, Source={x:Reference navigationView}}"
+            BackgroundColor="Transparent" />
+        <Grid.GestureRecognizers>
+            <TapGestureRecognizer
+                Command="{Binding LeftCommand, Source={x:Reference navigationView}}" />
+        </Grid.GestureRecognizers>
+    </Grid>
+    <Label
+        Grid.Column="2"
+        Margin="5,0"
+        x:Name="lblTitle"
+        Text="{Binding Title, Source={x:Reference navigationView}}"
+        TextColor="{StaticResource White}"
+        FontSize="{Binding FontSize, Source={x:Reference navigationView}}"
+        FontAttributes="Bold"
+        TextTransform="Uppercase"
+        HorizontalOptions="Center"
+        VerticalOptions="Center" />
+    <Grid
+        Grid.Column="3"
+        x:Name="btnRightView"
+        IsVisible="{Binding RightImage, Converter={StaticResource IsStringNotNullOrEmptyConverter}, Source={x:Reference navigationView}}">
+        <Image
+            x:Name="btnRight"
+            WidthRequest="24"
+            HeightRequest="24"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            Aspect="Fill"
+            Source="{Binding RightImage, Source={x:Reference navigationView}}"
+            BackgroundColor="Transparent">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer
+                    Command="{Binding RightCommand, Source={x:Reference navigationView}}" />
+            </Image.GestureRecognizers>
+        </Image>
+        <Grid.GestureRecognizers>
+            <TapGestureRecognizer
+                Command="{Binding RightCommand, Source={x:Reference navigationView}}" />
+        </Grid.GestureRecognizers>
+    </Grid>
+</Grid>
+

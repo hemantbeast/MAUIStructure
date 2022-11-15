@@ -4,44 +4,51 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:MAUIStructure"
     xmlns:pages="clr-namespace:MAUIStructure.Pages"
+    xmlns:views="clr-namespace:MAUIStructure.Views"
     xmlns:vm="clr-namespace:MAUIStructure.ViewModels"
     x:Class="MAUIStructure.Pages.MainPage"
     x:DataType="vm:MainViewModel"
-    Title="Home"
     StatusBarColor="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource Gray950}}"
     StatusBarStyle="LightContent">
-    <ScrollView>
-        <VerticalStackLayout
-            Spacing="25"
-            Padding="30,0"
-            VerticalOptions="Center">
+    <Grid
+        RowDefinitions="50, *">
+        <views:NavigationView
+            LeftImage=""
+            Title="Home" />
+        <ScrollView
+            Grid.Row="1">
+            <VerticalStackLayout
+                Spacing="25"
+                Padding="30,0"
+                VerticalOptions="Center">
 
-            <Image
-                Source="dotnet_bot.png"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                HeightRequest="200"
-                HorizontalOptions="Center" />
+                <Image
+                    Source="dotnet_bot.png"
+                    SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                    HeightRequest="200"
+                    HorizontalOptions="Center" />
 
-            <Label
-                Text="{local:Localize helloWorld}"
-                SemanticProperties.HeadingLevel="Level1"
-                FontSize="32"
-                HorizontalOptions="Center" />
+                <Label
+                    Text="{local:Localize helloWorld}"
+                    SemanticProperties.HeadingLevel="Level1"
+                    FontSize="32"
+                    HorizontalOptions="Center" />
 
-            <Label
-                Text="{local:Localize mauiWelcome}"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
-                FontSize="18"
-                HorizontalOptions="Center" />
+                <Label
+                    Text="{local:Localize mauiWelcome}"
+                    SemanticProperties.HeadingLevel="Level2"
+                    SemanticProperties.Description="Welcome to dot net Multi platform App U I"
+                    FontSize="18"
+                    HorizontalOptions="Center" />
 
-            <Button
-                x:Name="CounterBtn"
-                Text="{Binding ButtonText}"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Command="{Binding IncrementCountCommand}"
-                HorizontalOptions="Center" />
+                <Button
+                    x:Name="CounterBtn"
+                    Text="{Binding ButtonText}"
+                    SemanticProperties.Hint="Counts the number of times you click"
+                    Command="{Binding IncrementCountCommand}"
+                    HorizontalOptions="Center" />
 
-        </VerticalStackLayout>
-    </ScrollView>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
 </pages:BaseContentPage>

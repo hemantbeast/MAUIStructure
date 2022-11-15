@@ -33,6 +33,8 @@ namespace MAUIStructure.Pages
 		public BaseContentPage()
 		{
 			_isFirstTime = true;
+
+			Shell.SetNavBarIsVisible(this, false);
 		}
 
 		protected override void OnBindingContextChanged()
