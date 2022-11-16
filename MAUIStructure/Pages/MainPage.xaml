@@ -11,7 +11,13 @@
     StatusBarColor="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource Gray950}}"
     StatusBarStyle="LightContent">
     <Grid
-        RowDefinitions="50, *">
+        RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition
+                Height="{StaticResource NavigationBarHeight}" />
+            <RowDefinition
+                Height="*" />
+        </Grid.RowDefinitions>
         <views:NavigationView
             LeftImage=""
             Title="Home" />
@@ -46,11 +52,13 @@
                     Text="{Binding ButtonText}"
                     SemanticProperties.Hint="Counts the number of times you click"
                     Command="{Binding IncrementCountCommand}"
+                    HeightRequest="{StaticResource ButtonHeight}"
                     HorizontalOptions="Center" />
 
                 <Button
                     Text="{Binding LanguageButton}"
                     Command="{Binding ChangeLanguageCommand}"
+                    HeightRequest="{StaticResource ButtonHeight}"
                     HorizontalOptions="Center" />
 
             </VerticalStackLayout>

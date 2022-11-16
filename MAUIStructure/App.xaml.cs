@@ -2,6 +2,7 @@
 using MAUIStructure.Helpers;
 using MAUIStructure.Models;
 using MAUIStructure.Resources.Strings;
+using MAUIStructure.Resources.Styles;
 
 namespace MAUIStructure;
 
@@ -11,8 +12,20 @@ public partial class App : Application
 	{
 		InitializeComponent();
 
+		SetCurrentResources();
 		SetLanguage();
 		MainPage = new AppShell();
+	}
+
+	private void SetCurrentResources()
+	{
+		var height = DeviceDisplay.Current.MainDisplayInfo.Height / DeviceDisplay.Current.MainDisplayInfo.Density;
+
+		if (DeviceInfo.Platform == DevicePlatform.iOS && height > 800) {
+			dictionary.MergedDictionaries.Add(new IPhoneXStyle());
+		} else {
+			dictionary.MergedDictionaries.Add(new DefaultStyle());
+		}
 	}
 
 	public static void SetLanguage()
