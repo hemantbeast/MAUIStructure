@@ -48,6 +48,11 @@
                     Command="{Binding IncrementCountCommand}"
                     HorizontalOptions="Center" />
 
+                <Button
+                    Text="{Binding LanguageButton}"
+                    Command="{Binding ChangeLanguageCommand}"
+                    HorizontalOptions="Center" />
+
             </VerticalStackLayout>
         </ScrollView>
     </Grid>

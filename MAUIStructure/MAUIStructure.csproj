@@ -57,6 +57,7 @@
 		<PackageReference Include="CommunityToolkit.Maui" Version="3.0.0" />
 		<PackageReference Include="CommunityToolkit.Maui.Markup" Version="2.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Localization" Version="7.0.0" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -64,20 +65,10 @@
 	  <Folder Include="Pages\" />
 	  <Folder Include="ViewModels\" />
 	  <Folder Include="Views\" />
+	  <Folder Include="Models\" />
+	  <Folder Include="Helpers\" />
 	</ItemGroup>
-	<ItemGroup>
-	  <EmbeddedResource Update="Resources\Strings\LocalizationResources.resx">
-	    <Generator>ResXFileCodeGenerator</Generator>
-	    <LastGenOutput>LocalizationResources.Designer.cs</LastGenOutput>
-	  </EmbeddedResource>
-	</ItemGroup>
-	<ItemGroup>
-	  <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Resources\Strings\LocalizationResources.Designer.cs">
-	  	<DesignTime>True</DesignTime>
-	    <AutoGen>True</AutoGen>
-	    <DependentUpon>LocalizationResources.resx</DependentUpon>
-	  </Compile>
-	</ItemGroup>
+
 	<ItemGroup>
 	  <MauiXaml Update="Pages\MainPage.xaml">
 	    <SubType></SubType>
@@ -85,5 +76,23 @@
 	  <MauiXaml Update="Views\NavigationView.xaml">
 	    <SubType></SubType>
 	  </MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+	  <EmbeddedResource Update="Resources\Strings\LocalizationResources.resx">
+	    <Generator>ResXFileCodeGenerator</Generator>
+	    <LastGenOutput>LocalizationResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Strings\LocalizationResourcesar.resx">
+	    <Generator>ResXFileCodeGenerator</Generator>
+	    <LastGenOutput>LocalizationResources.ar.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	</ItemGroup>
+	<ItemGroup>
+	  <Compile Update="Resources\Strings\LocalizationResources.Designer.cs">
+	    <DependentUpon>LocalizationResources.resx</DependentUpon>
+	  </Compile>
+	  <Compile Update="Resources\Strings\LocalizationResources.ar.Designer.cs">
+	    <DependentUpon>LocalizationResources.ar.resx</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 </Project>

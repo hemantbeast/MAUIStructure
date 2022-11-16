@@ -1,6 +1,7 @@
 ﻿using System;
 using CommunityToolkit.Maui.Behaviors;
 using CommunityToolkit.Maui.Core;
+using MAUIStructure.Helpers;
 using MAUIStructure.ViewModels;
 
 namespace MAUIStructure.Pages
@@ -33,6 +34,7 @@ namespace MAUIStructure.Pages
 		public BaseContentPage()
 		{
 			_isFirstTime = true;
+			FlowDirection = Settings.AppLanguage.FlowDirection;
 
 			Shell.SetNavBarIsVisible(this, false);
 		}

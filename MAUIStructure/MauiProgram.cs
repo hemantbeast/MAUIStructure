@@ -25,10 +25,10 @@ public static class MauiProgram
 		builder.Services.AddLocalization();
 
 		// view models
-		builder.Services.AddSingleton<MainViewModel>();
+		builder.Services.AddTransient<MainViewModel>();
 
 		// pages
-		builder.Services.AddSingleton<MainPage>();
+		builder.Services.AddTransient<MainPage>();
 
 #if DEBUG
 		builder.Logging.AddDebug();

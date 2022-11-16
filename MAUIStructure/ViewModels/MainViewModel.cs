@@ -1,6 +1,8 @@
 ﻿using System;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using MAUIStructure.Helpers;
+using MAUIStructure.Models;
 using MAUIStructure.Resources.Strings;
 
 namespace MAUIStructure.ViewModels
@@ -17,6 +19,19 @@ namespace MAUIStructure.ViewModels
 			Count++;
 		}
 
+		[RelayCommand]
+		void ChangeLanguage()
+		{
+			if (Settings.AppLanguage.Language == LanguageEnum.English) {
+				Settings.AppLanguage = App.Languages.FirstOrDefault(x => x.Language == LanguageEnum.Arabic);
+			} else {
+				Settings.AppLanguage = App.Languages.FirstOrDefault(x => x.Language == LanguageEnum.English);
+			}
+
+			App.SetLanguage();
+			Application.Current.MainPage = new AppShell();
+		}
+
 		[ObservableProperty]
 		[NotifyPropertyChangedFor(nameof(ButtonText))]
 		int count;
@@ -30,6 +45,10 @@ namespace MAUIStructure.ViewModels
 				}
 			}
 		}
+
+		public string LanguageButton => Settings.AppLanguage.Language == LanguageEnum.English
+			? App.Languages.FirstOrDefault(x => x.Language == LanguageEnum.Arabic).Name
+			: App.Languages.FirstOrDefault(x => x.Language == LanguageEnum.English).Name;
 	}
 }
 
