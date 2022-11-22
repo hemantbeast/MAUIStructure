@@ -61,6 +61,12 @@
                     HeightRequest="{StaticResource ButtonHeight}"
                     HorizontalOptions="Center" />
 
+                <Button
+                    Text="Open page"
+                    Command="{Binding OpenNextPageCommand}"
+                    HeightRequest="{StaticResource ButtonHeight}"
+                    HorizontalOptions="Center" />
+
             </VerticalStackLayout>
         </ScrollView>
     </Grid>

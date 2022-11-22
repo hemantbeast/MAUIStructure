@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using MAUIStructure.Helpers;
 using MAUIStructure.Models;
+using MAUIStructure.Pages;
 using MAUIStructure.Resources.Strings;
 
 namespace MAUIStructure.ViewModels
@@ -30,6 +31,12 @@ namespace MAUIStructure.ViewModels
 
 			App.SetLanguage();
 			Application.Current.MainPage = new AppShell();
+		}
+
+		[RelayCommand]
+		void OpenNextPage()
+		{
+			Shell.Current.GoToAsync(nameof(NewPage));
 		}
 
 		[ObservableProperty]

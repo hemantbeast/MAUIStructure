@@ -24,17 +24,25 @@ public static class MauiProgram
 
 		builder.Services.AddLocalization();
 
-		// view models
-		builder.Services.AddTransient<MainViewModel>();
-
-		// pages
-		builder.Services.AddTransient<MainPage>();
+		SetViewModels(builder.Services);
+		SetPages(builder.Services);
 
 #if DEBUG
 		builder.Logging.AddDebug();
 #endif
 
 		return builder.Build();
+	}
+
+	private static void SetViewModels(IServiceCollection services)
+	{
+		services.AddTransient<MainViewModel>();
+	}
+
+	private static void SetPages(IServiceCollection services)
+	{
+		services.AddTransient<MainPage>();
+		services.AddTransient<NewPage>();
 	}
 }
 

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:BaseContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pages="clr-namespace:MAUIStructure.Pages"
+    xmlns:views="clr-namespace:MAUIStructure.Views"
+    x:Class="MAUIStructure.Pages.NewPage"
+    Title="NewPage"
+    StatusBarColor="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource Gray950}}"
+    StatusBarStyle="LightContent">
+    <Grid
+        RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition
+                Height="{StaticResource NavigationBarHeight}" />
+            <RowDefinition
+                Height="*" />
+        </Grid.RowDefinitions>
+        <views:NavigationView
+            Title="New Page" />
+    </Grid>
+</pages:BaseContentPage>
